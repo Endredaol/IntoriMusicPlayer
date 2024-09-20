@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="IntoriMusicPlayer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IntoriMusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+
+    <muxc:Grid>
+        <muxc:Grid.RowDefinitions>
+            <muxc:RowDefinition Height="32"/>
+            <muxc:RowDefinition Height="*"/>
+            <muxc:RowDefinition Height="Auto"/>
+        </muxc:Grid.RowDefinitions>
+        <muxc:StackPanel Height="32"
+							  Orientation="Horizontal"
+							  x:Name="CustomTitleBar"
+							  VerticalAlignment="Top"
+							  Background="Transparent"
+							  Grid.Row="0">
+            <!--LURD-->
+
+            <muxc:Image x:Name="AppIcon"
+							Width="16"
+							Height="16"
+							Source="Assets\StoreLogo.png"
+							VerticalAlignment="Center"
+							Margin="8,8,8,8"/>
+
+            <muxc:MenuBar x:Name="AppMenuBar" VerticalAlignment="Center">
+                <muxc:MenuBar.Resources>
+                    <Style TargetType="muxc:MenuBarItem">
+                        <Setter Property="Margin" Value="0,4,0,4"/>
+                    </Style>
+                </muxc:MenuBar.Resources>
+                <muxc:MenuBarItem Title="File(F)" AccessKey="F">
+                    <muxc:MenuFlyoutItem Text="New"/>
+                    <muxc:MenuFlyoutItem Text="Open..."/>
+                    <muxc:MenuFlyoutItem Text="Save"/>
+                    <muxc:MenuFlyoutItem Text="Exit"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Edit(E)" AccessKey="E">
+                    <muxc:MenuFlyoutItem Text="Undo"/>
+                    <muxc:MenuFlyoutItem Text="Cut"/>
+                    <muxc:MenuFlyoutItem Text="Copy"/>
+                    <muxc:MenuFlyoutItem Text="Paste"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="View(V)" AccessKey="V">
+                    <muxc:MenuFlyoutItem Text="Undo"/>
+                    <muxc:MenuFlyoutItem Text="Cut"/>
+                    <muxc:MenuFlyoutItem Text="Copy"/>
+                    <muxc:MenuFlyoutItem Text="Paste"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Placback(P)" AccessKey="P">
+                    <muxc:MenuFlyoutItem Text="Stop"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Library(L)" AccessKey="L">
+                    <muxc:MenuFlyoutItem Text=""/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Help(H)" AccessKey="H">
+                    <muxc:MenuFlyoutItem Text="About"/>
+                </muxc:MenuBarItem>
+            </muxc:MenuBar>
+        </muxc:StackPanel>
+
+        <muxc:Grid x:Name="MainMediaView" Grid.Row="1">
+            <muxc:Grid.ColumnDefinitions>
+                <muxc:ColumnDefinition Width="Auto"/>
+                <muxc:ColumnDefinition Width="Auto"/>
+                <muxc:ColumnDefinition Width="Auto"/>
+            </muxc:Grid.ColumnDefinitions>
+
+            <!-- Pane -->
+            <muxc:StackPanel x:Name="MaterialSwitch" 
+								  HorizontalAlignment="Center"
+								  VerticalAlignment="Top"
+								  Orientation="Vertical"
+								  Grid.Column="0"
+								  Background="Transparent">
+                <muxc:AutoSuggestBox x:Name="ProgramItemQueryBox" PlaceholderText="Search" Width="Auto"/>
+                <muxc:ListView x:Name="MusicPlaylists">
+
+                </muxc:ListView>
+                <muxc:ComboBox x:Name="MaterialComboBox"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						SelectionChanged="MaterialSelectionComboBox">
+                    <muxc:ComboBoxItem Content="Mica" Tag="Mica"/>
+                    <muxc:ComboBoxItem Content="MicaAlt" Tag="MicaAlt"/>
+                    <muxc:ComboBoxItem Content="Acrylic" Tag="Acrylic"/>
+                    <muxc:ComboBoxItem Content="AcrylicBase" Tag="AcrylicBase"/>
+                    <muxc:ComboBoxItem Content="AcrylicThin" Tag="AcrylicThin"/>
+                </muxc:ComboBox>
+            </muxc:StackPanel>
+
+            <muxc:Grid Grid.Column="1">
+            </muxc:Grid>
+        </muxc:Grid>
+
+        <muxc:Grid Grid.Row="2" Background="Transparent">
+            <muxc:Grid.RowDefinitions>
+                <muxc:RowDefinition Height="Auto"/>
+                <muxc:RowDefinition Height="Auto"/>
+            </muxc:Grid.RowDefinitions>
+            <muxc:Slider x:Name="ProgressSlider" Minimum="0" Maximum="100" Grid.Row="0"/>
+            <muxc:Grid Grid.Row="1">
+                <muxc:Grid.ColumnDefinitions>
+                    <muxc:ColumnDefinition Width="*"/>
+                    <muxc:ColumnDefinition Width="Auto"/>
+                    <muxc:ColumnDefinition Width="Auto"/>
+                    <muxc:ColumnDefinition Width="Auto"/>
+                    <muxc:ColumnDefinition Width="*"/>
+                </muxc:Grid.ColumnDefinitions>
+                <muxc:Button Content="Previous" Grid.Column="1" HorizontalAlignment="Center"/>
+                <muxc:Button Content=  "Play"   Grid.Column="2" HorizontalAlignment="Center"/>
+                <muxc:Button Content=  "Next"   Grid.Column="3" HorizontalAlignment="Center"/>
+            </muxc:Grid>
+        </muxc:Grid>
+    </muxc:Grid>
+</Window>
