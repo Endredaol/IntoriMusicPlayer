@@ -1,0 +1,26 @@
+{
+  "dependencies": [
+    {
+      "name": "ffmpeg",
+      "default-features": false,
+      "features": [
+        "avcodec",
+        "avformat",
+        "opus",
+        "version3",
+        "vorbis"
+      ]
+    },
+    {
+      "name": "sqlite3",
+      "default-features": false,
+      "features": [
+        "dbstat",
+        "fts5",
+        "session",
+        "snapshot"
+      ]
+    },
+    "sqlitecpp"
+  ]
+}
